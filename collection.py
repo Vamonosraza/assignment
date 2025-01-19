@@ -1,6 +1,7 @@
 import requests
 import json
 
+# need to collect through two urls because it does not allow me to collect data for more than 30 days at a time.
 url = "http://api.weatherapi.com/v1/history.json?key=f2b3d8b7c90c47e086d193033251501&q=Fairbanks&dt=2024-12-12&end_dt=2025-01-15&hour=12"
 
 url2 = "http://api.weatherapi.com/v1/history.json?key=f2b3d8b7c90c47e086d193033251501&q=Fairbanks&dt=2024-11-10&end_dt=2025-12-11&hour=12"
@@ -8,6 +9,7 @@ url2 = "http://api.weatherapi.com/v1/history.json?key=f2b3d8b7c90c47e086d1930332
 response = requests.get(url)
 response2 = requests.get(url2)
 
+# combine the data from the two urls
 if response.status_code == 200:
     print("Success!")
     data = response.json()
